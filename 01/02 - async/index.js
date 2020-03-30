@@ -9,20 +9,23 @@ function testMe() {
   console.log("Partnah");
 }
 // After thinking it through, uncomment the following line to check your guess!
-// testMe(); // what order should these log out? Howdy or Partnah first?
-
+testMe(); 
+// Partnah
+// Howdy
 /* CHALLENGE 2 */
 
 function delayedGreet() {
-  // ADD CODE HERE
+  setTimeout(()=>console.log("welcome"),3000); 
 }
+
 // Uncomment the following line to check your work!
 // delayedGreet(); // should log (after 3 seconds): welcome
 
 /* CHALLENGE 3 */
 
 function helloGoodbye() {
-  // ADD CODE HERE
+  console.log("Hello");
+  setTimeout(()=>console.log("GoodBye"),2000);
 }
 // Uncomment the following line to check your work!
 // helloGoodbye(); // should log: hello // should also log (after 3 seconds): good bye
@@ -30,7 +33,8 @@ function helloGoodbye() {
 /* CHALLENGE 4 */
 
 function brokenRecord() {
-  // ADD CODE HERE
+  console.log("Hi")
+  setTimeout(brokenRecord,1000)
 }
 // Uncomment the following line to check your work!
 // brokenRecord(); // should log (every second): hi again
@@ -38,16 +42,27 @@ function brokenRecord() {
 /* CHALLENGE 5 */
 
 function limitedRepeat() {
-  // ADD CODE HERE
+ for(let i=1;i<6;i++){
+   setTimeout(()=>console.log("Hi"),i*1000);
+ }
 }
 // Uncomment the following line to check your work!
 // limitedRepeat(); // should log (every second, for 5 seconds): hi for now
 
 /* CHALLENGE 6 */
 
-function everyXsecsForYsecs() {
+function everyXsecsForYsecs(func,interval,duration) {
   // ADD CODE HERE
+  
+  interval = interval*1000;
+  duration = duration*1000;
+  var intervalDuration = setInterval(func, interval);
+  setTimeout(() => {
+    clearInterval(intervalDuration)
+  }, duration);
 }
+
+
 // Uncomment the following lines to check your work!
 // function theEnd() {
 //   console.log('This is the end!');
